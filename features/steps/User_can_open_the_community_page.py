@@ -17,7 +17,7 @@ def log_in_to_the_page(context):
     email_field.send_keys("Matthew.andre@yahoo.com")
 
     password_field.click()
-    password_field.send_keys("@Ne3rdave")
+    password_field.send_keys("123456789")
 
     login_button.click()
 
