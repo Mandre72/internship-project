@@ -7,8 +7,8 @@ def open_the_main_page(context):
     context.driver.get('https://soft.reelly.io/sign-in')
 
 
-@when('Log in to the page')
-def log_in_to_the_page(context):
+@when('Login to the page')
+def login_to_the_page(context):
     email_field = context.driver.find_element(By.ID, 'email-2')
     password_field = context.driver.find_element(By.ID, 'field')
     login_button = context.driver.find_element(By.CSS_SELECTOR, '[class*="login-button"]')

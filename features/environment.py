@@ -1,21 +1,37 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait
+from app.application import Application
+from selenium.webdriver.chrome.options import Options
 
 
 def browser_init(context):
     """
     :param context: Behave context
     """
-    # context.driver = webdriver.Chrome()
-    service = Service(executable_path='/Users/matthewandre/Downloads/Automation/python-selenium-automation/chromedriver')
-    context.driver = webdriver.Chrome(service=service)
-    # context.browser = webdriver.Safari()
-    # context.browser = webdriver.Firefox()
+
+    # service = Service(executable_path='/Users/matthewandre/Desktop/internship-project/chromedriver')
+    # context.driver = webdriver.Chrome(service=service)
+    ### OTHER BROWSERS ###
+    service = Service(executable_path='/Users/matthewandre/Desktop/internship-project/geckodriver')
+    context.driver = webdriver.Firefox(service=service)
+    #context.driver = webdriver.Safari()
+
+    ### HEADLESS MODE ####
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # options.add_argument("--window-size=1200,800")
+    # service = Service(executable_path='/Users/matthewandre/Desktop/internship-project/chromedriver')
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
     context.driver.wait = WebDriverWait(context.driver, 10)
+
+    context.app = Application(context.driver)
 
 
 def before_scenario(context, scenario):

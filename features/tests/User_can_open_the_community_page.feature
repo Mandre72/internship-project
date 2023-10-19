@@ -3,7 +3,7 @@ Feature: User can open the community page
 
   Scenario: User can open the community page
     Given Open the main page
-    When Log in to the page
+    When Login to the page
     And Click on settings option
     And Click on Community option
     Then Verify the Community page opens
