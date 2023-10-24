@@ -42,7 +42,9 @@ def browser_init(context):
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
 
+    # To run behave with allure in terminal, use:
     # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/User_can_open_the_community_page.feature
+    # To generate report, run:
     # allure serve test_results /
 
     context.driver.maximize_window()
