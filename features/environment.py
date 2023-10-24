@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+# from support.logger import logger
 
 
 def browser_init(context):
@@ -9,8 +10,8 @@ def browser_init(context):
     :param context: Behave context
     """
 
-    # service = Service(executable_path='/Users/matthewandre/Desktop/internship-project/chromedriver')
-    # context.driver = webdriver.Chrome(service=service)
+    service = Service(executable_path='/Users/matthewandre/Desktop/internship-project/chromedriver')
+    context.driver = webdriver.Chrome(service=service)
     ### OTHER BROWSERS ###
     # service = Service(executable_path='/Users/matthewandre/Desktop/internship-project/geckodriver')
     # context.driver = webdriver.Firefox(service=service)
@@ -27,19 +28,22 @@ def browser_init(context):
     # )
 
     ### BROWSERSTACK ###
-    bs_user = 'matthewandre_5s6UmJ'
-    bs_key = 'fxpy9pi1xYELVssxbCzk'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # bs_user = 'matthewandre_5s6UmJ'
+    # bs_key = 'fxpy9pi1xYELVssxbCzk'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     'os': 'Windows',
+    #     'osVersion': '10',
+    #     'browserName': 'Firefox',
+    #     'sessionName': 'User can open the community page'
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
-    options = Options()
-    bstack_options = {
-        'os': 'Windows',
-        'osVersion': '10',
-        'browserName': 'Firefox',
-        'sessionName': 'User can open the community page'
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/User_can_open_the_community_page.feature
+    # allure serve test_results /
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
