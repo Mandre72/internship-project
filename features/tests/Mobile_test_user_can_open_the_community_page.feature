@@ -7,4 +7,4 @@ Feature: User can open the community page
     And Click on menu option
     And Click on Community option
     Then Verify the Community page opens
-    And Verify at least one article is available
+    And Verify two articles are available

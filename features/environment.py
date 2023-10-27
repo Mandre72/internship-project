@@ -35,9 +35,11 @@ def browser_init(context):
     #
     # options = Options()
     # bstack_options = {
-    #     'os': 'Windows',
-    #     'osVersion': '10',
-    #     'browserName': 'Edge',
+    #     "osVersion": "16",
+    #     "deviceName": "iPhone 12 Pro",
+    #     # 'os': 'Windows',
+    #     # 'osVersion': '10',
+    #     # 'browserName': "Firefox",
     #     'sessionName': 'Mobile test user can open the community page'
     # }
     # options.set_capability('bstack:options', bstack_options)
